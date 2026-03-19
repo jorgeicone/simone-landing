@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Simoné — Experiencias que inspiran y perduran. Consultoría, formación y bienestar organizacional bajo la metodología El Borde Visible™"/>
+<title>Simoné · Experiencias que Inspiran y Perduran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════
+   VARIABLES & RESET
+══════════════════════════════════════════ */
+:root {
+  --verde-oscuro:  #1c3a10;
+  --verde:         #2d5a1b;
+  --verde-medio:   #4a7c2e;
+  --verde-oliva:   #7a9e3b;
+  --verde-claro:   #b8d46a;
+  --verde-suave:   #d8edb0;
+  --verde-bg:      #eef6e0;
+  --tierra:        #7a4f2b;
+  --tierra-clara:  #c49a6c;
+  --cielo:         #5ba3c9;
+  --cielo-claro:   #c8e8f5;
+  --crema:         #f5f0e8;
+  --blanco:        #ffffff;
+  --texto:         #1a2a12;
+  --texto-suave:   #4a5e3a;
+  --wa-green:      #25d366;
+  --sombra:        0 8px 32px rgba(30,60,15,.12);
+  --sombra-hover:  0 16px 48px rgba(30,60,15,.2);
+  --radio:         16px;
+  --radio-lg:      24px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  overflow-x: hidden;
+}
+img { max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ══════════════════════════════════════════
+   UTILIDADES
+══════════════════════════════════════════ */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section-tag {
+  display: inline-block;
+  background: var(--verde-suave);
+  color: var(--verde);
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--verde-oscuro);
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 1rem; color: var(--texto-suave);
+  line-height: 1.7; max-width: 640px;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--verde); color: #fff;
+  font-weight: 700; font-size: .92rem;
+  padding: 14px 28px; border-radius: 50px;
+  border: none; cursor: pointer;
+  transition: all .25s ease;
+  box-shadow: 0 4px 14px rgba(45,90,27,.3);
+}
+.btn-primary:hover { background: var(--verde-oscuro); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,90,27,.35); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--verde);
+  font-weight: 700; font-size: .92rem;
+  padding: 13px 28px; border-radius: 50px;
+  border: 2px solid var(--verde); cursor: pointer;
+  transition: all .25s ease;
+}
+.btn-outline:hover { background: var(--verde); color: #fff; transform: translateY(-2px); }
+.wave-top, .wave-bottom { width: 100%; overflow: hidden; line-height: 0; }
+.wave-top svg, .wave-bottom svg { display: block; }
+
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 24px;
+  transition: all .3s ease;
+}
+nav.scrolled {
+  background: rgba(28,58,16,.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 900;
+  color: #fff; letter-spacing: 2px;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-dots { display: flex; gap: 4px; }
+.nav-dots span {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--verde-claro);
+  animation: dotPulse 2s infinite;
+}
+.nav-dots span:nth-child(2) { animation-delay: .2s; }
+.nav-dots span:nth-child(3) { animation-delay: .4s; }
+.nav-dots span:nth-child(4) { animation-delay: .6s; }
+@keyframes dotPulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+.nav-links {
+  display: flex; gap: 28px; align-items: center;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,.85); font-size: .88rem; font-weight: 500;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--verde-claro); }
+.nav-cta {
+  background: var(--wa-green); color: #fff !important;
+  padding: 8px 18px; border-radius: 50px; font-weight: 700 !important;
+  font-size: .82rem !important;
+  box-shadow: 0 3px 10px rgba(37,211,102,.3);
+  transition: all .2s !important;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 5px 16px rgba(37,211,102,.4); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: .3s; }
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+#hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(74,124,46,.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(91,163,201,.15) 0%, transparent 50%),
+    linear-gradient(160deg, var(--verde-oscuro) 0%, #2d5a1b 40%, #3d7a22 70%, #1c3a10 100%);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: 80px;
+}
+.hero-nature {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+/* Organic blob shapes */
+.blob {
+  position: absolute; border-radius: 50%;
+  opacity: .06; animation: blobFloat 8s ease-in-out infinite;
+}
+.blob-1 { width: 500px; height: 500px; background: var(--verde-claro); top: -100px; right: -100px; animation-delay: 0s; }
+.blob-2 { width: 300px; height: 300px; background: var(--cielo); bottom: 100px; left: -50px; animation-delay: -3s; }
+.blob-3 { width: 200px; height: 200px; background: var(--verde-medio); top: 40%; right: 20%; animation-delay: -5s; }
+@keyframes blobFloat { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(20px,-20px) scale(1.05)} }
+
+/* Leaf SVG pattern */
+.hero-leaf {
+  position: absolute; opacity: .08; pointer-events: none;
+}
+
+.hero-body {
+  position: relative; z-index: 2;
+  padding: 80px 0 60px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50px; padding: 6px 16px;
+  font-size: .75rem; font-weight: 600; color: var(--verde-claro);
+  text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--verde-claro); animation: blink 1.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 900; color: #fff;
+  line-height: 1.1; margin-bottom: 12px;
+}
+.hero-title .accent { color: var(--verde-claro); }
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,.7);
+  font-weight: 300; margin-bottom: 16px;
+  letter-spacing: 3px; text-transform: uppercase;
+}
+.hero-desc {
+  font-size: 1.05rem; color: rgba(255,255,255,.75);
+  max-width: 520px; line-height: 1.75; margin-bottom: 36px;
+}
+.hero-desc em { color: var(--verde-claro); font-style: normal; font-weight: 600; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.btn-hero-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--verde-claro); color: var(--verde-oscuro);
+  font-weight: 800; font-size: 1rem;
+  padding: 16px 32px; border-radius: 50px; border: none; cursor: pointer;
+  transition: all .25s; box-shadow: 0 6px 24px rgba(184,212,106,.35);
+  letter-spacing: .3px;
+}
+.btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(184,212,106,.5); background: #cce87a; }
+.btn-hero-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--wa-green); color: #fff;
+  font-weight: 700; font-size: 1rem;
+  padding: 16px 28px; border-radius: 50px; border: none; cursor: pointer;
+  transition: all .25s; box-shadow: 0 6px 20px rgba(37,211,102,.3);
+}
+.btn-hero-wa:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(37,211,102,.45); }
+
+/* Audience pills */
+.hero-audiences {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.audience-pill {
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px; padding: 12px 18px;
+  font-size: .82rem; color: rgba(255,255,255,.9);
+  line-height: 1.4;
+  transition: all .2s;
+}
+.audience-pill:hover { background: rgba(255,255,255,.18); border-color: var(--verde-claro); }
+.audience-pill strong { color: var(--verde-claro); display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 3px; }
+
+/* Hero visual */
+.hero-visual {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-card-float {
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px; padding: 28px;
+  color: #fff; max-width: 320px; width: 100%;
+  animation: floatCard 5s ease-in-out infinite;
+}
+@keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.hero-card-float .hcf-label { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; opacity: .6; margin-bottom: 8px; }
+.hero-card-float .hcf-brand { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; letter-spacing: 2px; color: var(--verde-claro); margin-bottom: 4px; }
+.hero-card-float .hcf-dots { display: flex; gap: 5px; margin-bottom: 20px; }
+.hero-card-float .hcf-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--verde-claro); }
+.hcf-stat { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.15); }
+.hcf-stat:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.hcf-stat .num { font-size: 1.3rem; font-weight: 800; color: var(--verde-claro); }
+.hcf-stat .lbl { font-size: .75rem; opacity: .7; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+/* Wave bottom */
+.hero-wave {
+  position: absolute; bottom: 0; left: 0; right: 0; pointer-events: none;
+}
+
+/* ══════════════════════════════════════════
+   METODOLOGÍA
+══════════════════════════════════════════ */
+#metodologia {
+  background: var(--blanco);
+  padding: 90px 0;
+}
+.metod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.metod-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--verde-oscuro); color: var(--verde-claro);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  padding: 10px 20px; border-radius: 10px;
+  margin-bottom: 20px; letter-spacing: 1px;
+}
+.metod-pillars { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.metod-pillar {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; border-radius: 12px;
+  background: var(--verde-bg);
+  border-left: 4px solid var(--verde-medio);
+  transition: all .2s;
+}
+.metod-pillar:hover { background: var(--verde-suave); transform: translateX(4px); }
+.metod-pillar .mp-icon { font-size: 1.4rem; flex-shrink: 0; }
+.metod-pillar .mp-text strong { font-size: .92rem; color: var(--verde-oscuro); display: block; margin-bottom: 3px; }
+.metod-pillar .mp-text p { font-size: .82rem; color: var(--texto-suave); line-height: 1.5; }
+.metod-visual {
+  background: linear-gradient(145deg, var(--verde-oscuro), var(--verde));
+  border-radius: 24px; padding: 40px 32px;
+  color: #fff; position: relative; overflow: hidden;
+}
+.metod-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+.metod-visual h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 800; color: var(--verde-claro);
+  margin-bottom: 6px; position: relative;
+}
+.metod-visual .mv-sub { font-size: .82rem; opacity: .7; margin-bottom: 28px; position: relative; letter-spacing: 1px; }
+.metod-triangle {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  position: relative;
+}
+.mv-card {
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px; padding: 16px;
+}
+.mv-card:first-child { grid-column: 1 / -1; text-align: center; background: rgba(184,212,106,.15); border-color: var(--verde-claro); }
+.mv-card .mvc-icon { font-size: 1.3rem; margin-bottom: 6px; }
+.mv-card strong { font-size: .88rem; color: var(--verde-claro); display: block; margin-bottom: 4px; }
+.mv-card p { font-size: .75rem; opacity: .75; line-height: 1.4; }
+
+/* ══════════════════════════════════════════
+   AUDIENCIAS
+══════════════════════════════════════════ */
+#audiencias {
+  background: var(--crema);
+  padding: 80px 0;
+}
+.aud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
+.aud-card {
+  border-radius: 20px; overflow: hidden;
+  box-shadow: var(--sombra); transition: all .3s;
+}
+.aud-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-hover); }
+.aud-card-head {
+  padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.aud-card:first-child .aud-card-head { background: linear-gradient(135deg, var(--verde-oscuro), var(--verde)); }
+.aud-card:last-child  .aud-card-head { background: linear-gradient(135deg, #1a4a6e, var(--cielo)); }
+.aud-card-head .aud-icon { font-size: 2.2rem; }
+.aud-card-head h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #fff; line-height: 1.3; }
+.aud-card-body { background: #fff; padding: 24px 28px; }
+.aud-tag { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 10px; }
+.aud-card:first-child .aud-tag { color: var(--verde); }
+.aud-card:last-child  .aud-tag { color: var(--cielo); }
+.aud-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.aud-chip {
+  font-size: .78rem; font-weight: 500;
+  padding: 5px 12px; border-radius: 20px;
+}
+.aud-card:first-child .aud-chip { background: var(--verde-bg); color: var(--verde); }
+.aud-card:last-child  .aud-chip { background: var(--cielo-claro); color: #1a4a6e; }
+
+/* ══════════════════════════════════════════
+   SERVICIOS
+══════════════════════════════════════════ */
+#servicios {
+  background: var(--blanco);
+  padding: 90px 0;
+}
+.srv-intro { text-align: center; margin-bottom: 60px; }
+.srv-intro .section-sub { margin: 0 auto; }
+.srv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.srv-grid-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.srv-card {
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(30,60,15,.08);
+  border: 1.5px solid rgba(122,158,59,.15);
+  transition: all .3s; background: #fff;
+  display: flex; flex-direction: column;
+}
+.srv-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-hover); border-color: var(--verde-medio); }
+.srv-num-head {
+  padding: 28px 24px 20px;
+  position: relative;
+}
+.srv-card:nth-child(1) .srv-num-head { background: linear-gradient(135deg, #1c3a10, #2d5a1b); }
+.srv-card:nth-child(2) .srv-num-head { background: linear-gradient(135deg, #1a4a6e, #2a6a9e); }
+.srv-card:nth-child(3) .srv-num-head { background: linear-gradient(135deg, #4a2a00, #7a5a20); }
+.srv-card:nth-child(4) .srv-num-head { background: linear-gradient(135deg, #2d5a1b, #5a8a30); }
+.srv-card:nth-child(5) .srv-num-head { background: linear-gradient(135deg, #1c3a10, #3a6020); }
+.srv-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: rgba(255,255,255,.15); position: absolute;
+  top: 12px; right: 20px; line-height: 1;
+}
+.srv-icon { font-size: 1.8rem; margin-bottom: 10px; }
+.srv-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700; color: #fff;
+  line-height: 1.3;
+}
+.srv-card-body { padding: 20px 24px 24px; flex: 1; }
+.srv-desc { font-size: .84rem; color: var(--texto-suave); line-height: 1.65; margin-bottom: 14px; }
+.srv-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.srv-items li {
+  font-size: .8rem; font-weight: 500; color: var(--texto);
+  padding-left: 16px; position: relative; line-height: 1.4;
+}
+.srv-items li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--verde-oliva); font-size: .75rem; top: 1px;
+}
+
+/* ══════════════════════════════════════════
+   IMPACTO / STATS
+══════════════════════════════════════════ */
+#impacto {
+  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  padding: 72px 0;
+  position: relative; overflow: hidden;
+}
+#impacto::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+.impacto-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 32px;
+  position: relative; text-align: center;
+}
+.imp-item .imp-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem; font-weight: 900; color: var(--verde-claro);
+  line-height: 1; margin-bottom: 8px;
+}
+.imp-item .imp-label { font-size: .88rem; color: rgba(255,255,255,.75); line-height: 1.4; }
+.imp-divider { width: 1px; background: rgba(255,255,255,.15); }
+
+/* ══════════════════════════════════════════
+   CONTACTO
+══════════════════════════════════════════ */
+#contacto {
+  background: var(--crema);
+  padding: 90px 0;
+}
+.contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contacto-info .ci-why { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+.ci-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px; background: var(--blanco); border-radius: 12px;
+  border-left: 3px solid var(--verde-medio); box-shadow: 0 2px 8px rgba(30,60,15,.06);
+}
+.ci-item .ci-icon { font-size: 1.2rem; flex-shrink: 0; }
+.ci-item strong { font-size: .88rem; color: var(--verde-oscuro); display: block; margin-bottom: 3px; }
+.ci-item p { font-size: .8rem; color: var(--texto-suave); line-height: 1.5; }
+.contacto-form {
+  background: var(--blanco); border-radius: 24px;
+  padding: 36px; box-shadow: var(--sombra);
+  border: 1.5px solid rgba(122,158,59,.15);
+}
+.form-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 6px; }
+.form-sub { font-size: .84rem; color: var(--texto-suave); margin-bottom: 24px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: .78rem; font-weight: 700; color: var(--texto-suave); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 12px 16px;
+  background: var(--crema); border: 1.5px solid rgba(122,158,59,.2);
+  border-radius: 10px; font-size: .9rem; font-family: inherit;
+  color: var(--texto); outline: none;
+  transition: border-color .2s, background .2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: var(--verde-medio); background: var(--blanco);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.btn-form {
+  width: 100%; padding: 14px; border-radius: 50px; border: none; cursor: pointer;
+  background: var(--verde); color: #fff; font-weight: 700; font-size: 1rem;
+  transition: all .25s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 8px;
+}
+.btn-form:hover { background: var(--verde-oscuro); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,90,27,.3); }
+.form-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+.form-divider::before, .form-divider::after { content: ''; flex: 1; height: 1px; background: rgba(122,158,59,.2); }
+.form-divider span { font-size: .75rem; color: #aaa; font-weight: 600; }
+.btn-wa-full {
+  width: 100%; padding: 14px; border-radius: 50px; border: none; cursor: pointer;
+  background: var(--wa-green); color: #fff; font-weight: 700; font-size: .95rem;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: all .25s; text-decoration: none;
+}
+.btn-wa-full:hover { background: #1ea355; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,.35); }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer {
+  background: var(--verde-oscuro);
+  padding: 56px 0 28px;
+  color: rgba(255,255,255,.75);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand { }
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 900; color: #fff;
+  letter-spacing: 2px; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-logo-dots { display: flex; gap: 4px; align-items: center; }
+.footer-logo-dots span { width: 5px; height: 5px; border-radius: 50%; background: var(--verde-claro); }
+.footer-tagline { font-size: .84rem; opacity: .65; margin-bottom: 16px; font-style: italic; }
+.footer-social { display: flex; gap: 10px; }
+.social-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem; color: rgba(255,255,255,.8);
+  transition: all .2s; cursor: pointer; text-decoration: none;
+}
+.social-btn:hover { background: var(--verde-claro); color: var(--verde-oscuro); border-color: var(--verde-claro); transform: translateY(-2px); }
+.footer-col h4 { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--verde-claro); margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a { font-size: .84rem; color: rgba(255,255,255,.65); transition: color .2s; }
+.footer-col ul li a:hover { color: var(--verde-claro); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: .78rem; opacity: .5; }
+.footer-trademark { font-size: .75rem; color: var(--verde-claro); opacity: .7; }
+
+/* ══════════════════════════════════════════
+   WHATSAPP FLOTANTE
+══════════════════════════════════════════ */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  display: flex; align-items: center; gap: 0;
+  animation: waPulse 3s ease-in-out infinite;
+}
+@keyframes waPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+.wa-float a {
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--wa-green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; box-shadow: 0 6px 24px rgba(37,211,102,.45);
+  transition: all .25s; text-decoration: none;
+}
+.wa-float a:hover { background: #1ea355; transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.55); }
+.wa-float-tooltip {
+  position: absolute; right: 70px;
+  background: #fff; color: var(--texto); font-size: .8rem; font-weight: 600;
+  padding: 8px 14px; border-radius: 10px; white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
+  opacity: 0; transform: translateX(8px);
+  transition: all .3s; pointer-events: none;
+}
+.wa-float-tooltip::after {
+  content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+  border: 6px solid transparent; border-right: none;
+  border-left-color: #fff;
+}
+.wa-float:hover .wa-float-tooltip { opacity: 1; transform: translateX(0); }
+
+/* ══════════════════════════════════════════
+   ANIMACIONES DE ENTRADA
+══════════════════════════════════════════ */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-left { opacity: 0; transform: translateX(-30px); transition: opacity .7s ease, transform .7s ease; }
+.fade-left.visible { opacity: 1; transform: translateX(0); }
+.fade-right { opacity: 0; transform: translateX(30px); transition: opacity .7s ease, transform .7s ease; }
+.fade-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ══════════════════════════════════════════
+   SUCCESS STATE FORMULARIO
+══════════════════════════════════════════ */
+.form-success {
+  display: none; text-align: center; padding: 32px;
+}
+.form-success.show { display: block; }
+.form-success .fs-icon { font-size: 3rem; margin-bottom: 14px; }
+.form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--verde); margin-bottom: 8px; }
+.form-success p { font-size: .88rem; color: var(--texto-suave); line-height: 1.6; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .metod-grid, .contacto-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .srv-grid { grid-template-columns: 1fr; }
+  .srv-grid-bottom { grid-template-columns: 1fr; }
+  .aud-grid { grid-template-columns: 1fr; }
+  .impacto-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-grid2 { grid-template-columns: 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .btn-hero-primary, .btn-hero-wa { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      SIMONÉ
+      <div class="nav-dots"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#metodologia">Metodología</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#audiencias">Para ti</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="https://wa.me/573217738039?text=Hola%20Simon%C3%A9%20%F0%9F%91%8B%20Vi%20su%20propuesta%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s.%20%C2%BFPodemos%20hablar%3F" target="_blank" class="nav-cta">💬 WhatsApp</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="inicio" id="hero" style="min-height:100vh; background: radial-gradient(ellipse at 20% 50%, rgba(74,124,46,.25) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(91,163,201,.15) 0%, transparent 50%), linear-gradient(160deg, #1c3a10 0%, #2d5a1b 40%, #3d7a22 70%, #1c3a10 100%); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; padding-top:80px;">
+  <div class="hero-nature">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:2; padding-top:60px; padding-bottom:80px;">
+    <div class="hero-grid">
+      <div class="hero-body">
+        <div class="hero-eyebrow">🌿 Metodología El Borde Visible™</div>
+        <p class="hero-subtitle">Simoné · Arte y Naturaleza</p>
+        <h1 class="hero-title">¡Experiencias que<br/><span class="accent">inspiran</span> y<br/>perduran!</h1>
+        <p class="hero-desc">
+          Transformamos la cultura organizacional a través del arte, el land art y la creatividad.
+          Experiencias que generan <em>cambios sostenibles</em> en personas y equipos.
+        </p>
+        <div class="hero-ctas">
+          <a href="#servicios" class="btn-hero-primary">
+            🗺️ Recorre la Ruta
+          </a>
+          <a href="https://wa.me/573217738039?text=Hola%20Simon%C3%A9%20%F0%9F%91%8B%20Vi%20su%20propuesta%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s.%20%C2%BFPodemos%20hablar%3F" target="_blank" class="btn-hero-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Hablemos
+          </a>
+        </div>
+        <div class="hero-audiences">
+          <div class="audience-pill">
+            <strong>Para ti si eres de</strong>
+            Mercadeo · Fidelización · Servicio al cliente · Educación y desarrollo social
+          </div>
+          <div class="audience-pill">
+            <strong>Para ti si eres de</strong>
+            Gestión Humana · Formación · Bienestar Organizacional · Salud Laboral
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-float">
+          <div class="hcf-label">Nuestra marca</div>
+          <div class="hcf-brand">SIMONÉ</div>
+          <div class="hcf-dots"><span></span><span></span><span></span><span></span></div>
+          <div class="hcf-stat">
+            <div><div class="num">5</div><div class="lbl">Líneas de servicio</div></div>
+            <div><div class="num">13+</div><div class="lbl">Años de experiencia</div></div>
+          </div>
+          <div class="hcf-stat">
+            <div><div class="num">2</div><div class="lbl">Audiencias B2B</div></div>
+            <div><div class="num">∞</div><div class="lbl">Impacto sostenible</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wave -->
+  <div style="position:absolute;bottom:0;left:0;right:0;pointer-events:none;">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══ METODOLOGÍA ══ -->
+<section id="metodologia" style="background:#fff; padding:90px 0;">
+  <div class="container">
+    <div class="metod-grid">
+      <div class="fade-left">
+        <div class="section-tag">Nuestra Metodología</div>
+        <div class="metod-badge">EL BORDE VISIBLE™</div>
+        <h2 class="section-title">Donde la precisión se encuentra con el arte</h2>
+        <p class="section-sub">Fusionamos la precisión estratégica de Harvard con la fuerza transformadora del arte, el land art y la creatividad. Somos experiencias que inspiran y perduran.</p>
+        <div class="metod-pillars">
+          <div class="metod-pillar">
+            <div class="mp-icon">🎓</div>
+            <div class="mp-text"><strong>Rigor Estratégico</strong><p>Metodologías basadas en evidencia con enfoque en resultados medibles y cambios sostenibles en la cultura organizacional.</p></div>
+          </div>
+          <div class="metod-pillar">
+            <div class="mp-icon">🎨</div>
+            <div class="mp-text"><strong>Arte como Herramienta</strong><p>El arte no es decorativo — es el vehículo de transformación. Dibujo, pintura, modelado, expresión corporal y land art.</p></div>
+          </div>
+          <div class="metod-pillar">
+            <div class="mp-icon">🌿</div>
+            <div class="mp-text"><strong>Conexión con la Naturaleza</strong><p>Land art, botánica, jardinería y exploración sensorial como catalizadores del aprendizaje profundo y el bienestar real.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div class="metod-visual">
+          <h3>EL BORDE VISIBLE™</h3>
+          <p class="mv-sub">La metodología que lo cambia todo</p>
+          <div class="metod-triangle">
+            <div class="mv-card">
+              <div class="mvc-icon">⚡</div>
+              <strong>Impacto Real</strong>
+              <p>Aprendizaje activo que genera cambios conductuales medibles en personas y equipos</p>
+            </div>
+            <div class="mv-card">
+              <div class="mvc-icon">🧠</div>
+              <strong>Harvard + Arte</strong>
+              <p>Precisión académica fusionada con la creatividad como herramienta de transformación</p>
+            </div>
+            <div class="mv-card">
+              <div class="mvc-icon">🔄</div>
+              <strong>Ciclo Experiencial</strong>
+              <p>Actuar → Reflexionar → Conceptualizar → Aplicar a mi realidad</p>
+            </div>
+            <div class="mv-card">
+              <div class="mvc-icon">🌱</div>
+              <strong>Cambios Sostenibles</strong>
+              <p>No talleres de un día — programas que generan huella cultural duradera</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AUDIENCIAS ══ -->
+<section id="audiencias" style="background:var(--crema); padding:80px 0;">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:44px;" class="fade-up">
+      <div class="section-tag">¿Para quién es Simoné?</div>
+      <h2 class="section-title">Diseñado para quienes<br/>transforman organizaciones</h2>
+      <p class="section-sub" style="margin:0 auto;">Si trabajas en áreas que mueven personas, culturas y resultados, Simoné tiene una experiencia diseñada para ti y tu equipo.</p>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card fade-left">
+        <div class="aud-card-head" style="background:linear-gradient(135deg,#1c3a10,#2d5a1b);">
+          <div class="aud-icon">🌱</div>
+          <h3>Mercadeo, Fidelización & Desarrollo</h3>
+        </div>
+        <div class="aud-card-body">
+          <div class="aud-tag" style="color:var(--verde);">Estas experiencias son para ti si gestionas</div>
+          <div class="aud-chips">
+            <span class="aud-chip" style="background:var(--verde-bg);color:var(--verde);">Mercadeo</span>
+            <span class="aud-chip" style="background:var(--verde-bg);color:var(--verde);">Fidelización</span>
+            <span class="aud-chip" style="background:var(--verde-bg);color:var(--verde);">Servicio al cliente</span>
+            <span class="aud-chip" style="background:var(--verde-bg);color:var(--verde);">Área comercial</span>
+            <span class="aud-chip" style="background:var(--verde-bg);color:var(--verde);">Educación</span>
+            <span class="aud-chip" style="background:var(--verde-bg);color:var(--verde);">Desarrollo social</span>
+          </div>
+        </div>
+      </div>
+      <div class="aud-card fade-right">
+        <div class="aud-card-head" style="background:linear-gradient(135deg,#1a4a6e,#2a6a9e);">
+          <div class="aud-icon">🏢</div>
+          <h3>Gestión Humana, Formación & Bienestar</h3>
+        </div>
+        <div class="aud-card-body">
+          <div class="aud-tag" style="color:#1a4a6e;">Estas experiencias son para ti si gestionas</div>
+          <div class="aud-chips">
+            <span class="aud-chip" style="background:var(--cielo-claro);color:#1a4a6e;">Gestión Humana</span>
+            <span class="aud-chip" style="background:var(--cielo-claro);color:#1a4a6e;">Formación</span>
+            <span class="aud-chip" style="background:var(--cielo-claro);color:#1a4a6e;">Capacitación</span>
+            <span class="aud-chip" style="background:var(--cielo-claro);color:#1a4a6e;">Bienestar organizacional</span>
+            <span class="aud-chip" style="background:var(--cielo-claro);color:#1a4a6e;">Salud laboral</span>
+            <span class="aud-chip" style="background:var(--cielo-claro);color:#1a4a6e;">Burnout corporativo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICIOS ══ -->
+<section id="servicios" style="background:#fff; padding:90px 0;">
+  <div class="container">
+    <div class="srv-intro fade-up">
+      <div class="section-tag">Nuestras 5 Líneas</div>
+      <h2 class="section-title">Recorre la Ruta Simoné</h2>
+      <p class="section-sub">Cada experiencia está diseñada con intención estratégica. Elige la que tu organización necesita hoy.</p>
+    </div>
+    <div class="srv-grid">
+      <!-- 1 -->
+      <div class="srv-card fade-up">
+        <div class="srv-num-head">
+          <div class="srv-num">1</div>
+          <div class="srv-icon">🏛️</div>
+          <div class="srv-name">Consultorías Estratégicas</div>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">Acompañamiento especializado en la gestión memorable del talento para consolidar culturas de alto desempeño y liderazgos coherentes.</p>
+          <ul class="srv-items">
+            <li>Clima y cultura organizacional</li>
+            <li>Consultoría en Burnout "Equilibrio total"</li>
+            <li>Mentorías individuales</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="srv-card fade-up" style="transition-delay:.1s">
+        <div class="srv-num-head">
+          <div class="srv-num">2</div>
+          <div class="srv-icon">📚</div>
+          <div class="srv-name">Programas y Escuelas de Formación</div>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">Procesos profundos para el desarrollo humano bajo la metodología El Borde Visible™. Garantizamos aprendizaje con impacto real y cambios sostenibles.</p>
+          <ul class="srv-items">
+            <li>Escuela de Liderazgo</li>
+            <li>Escuela de Habilidades Blandas</li>
+            <li>Escuela de Ecología Emocional</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="srv-card fade-up" style="transition-delay:.2s">
+        <div class="srv-num-head">
+          <div class="srv-num">3</div>
+          <div class="srv-icon">📣</div>
+          <div class="srv-name">Campañas Educativas</div>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">Traducimos temas complejos en contenidos claros y participativos con un enfoque creativo y accionable. Ecosistemas de comunicación y aprendizaje.</p>
+          <ul class="srv-items">
+            <li>Promoción y prevención de la salud</li>
+            <li>Formación ambiental</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="srv-grid-bottom">
+      <!-- 4 -->
+      <div class="srv-card fade-up" style="transition-delay:.3s">
+        <div class="srv-num-head">
+          <div class="srv-num">4</div>
+          <div class="srv-icon">⚡</div>
+          <div class="srv-name">Experiencias Focalizadas</div>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">Espacios ágiles de aprendizaje. Intervenciones puntuales diseñadas para inspirar, reflexionar y accionar sobre retos inmediatos.</p>
+          <ul class="srv-items">
+            <li>Power Skills: habilidades de alto desempeño</li>
+            <li>Educación ambiental y sostenibilidad</li>
+            <li>ORIGEN: 4 Estaciones</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="srv-card fade-up" style="transition-delay:.4s">
+        <div class="srv-num-head">
+          <div class="srv-num">5</div>
+          <div class="srv-icon">🎪</div>
+          <div class="srv-name">Activaciones de Marca y Eventos</div>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">Fortalecemos el ADN de su marca en experiencias sensoriales de alto impacto que conectan el propósito con la emoción.</p>
+          <ul class="srv-items">
+            <li>Experiencias sensoriales de marca</li>
+            <li>Eventos corporativos con propósito</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IMPACTO ══ -->
+<section id="impacto" style="background:linear-gradient(135deg,#1c3a10,#2d5a1b); padding:72px 0; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url(\"data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E\") repeat;pointer-events:none;"></div>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;position:relative;">
+      <div class="fade-up">
+        <div style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#b8d46a;line-height:1;margin-bottom:8px;">13+</div>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.4;">Años transformando<br/>organizaciones</div>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#b8d46a;line-height:1;margin-bottom:8px;">5</div>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.4;">Líneas de<br/>experiencia</div>
+      </div>
+      <div class="fade-up" style="transition-delay:.2s">
+        <div style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#b8d46a;line-height:1;margin-bottom:8px;">EBV™</div>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.4;">Metodología<br/>El Borde Visible</div>
+      </div>
+      <div class="fade-up" style="transition-delay:.3s">
+        <div style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:#b8d46a;line-height:1;margin-bottom:8px;">∞</div>
+        <div style="font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.4;">Impacto<br/>sostenible</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto" style="background:var(--crema); padding:90px 0;">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="fade-left">
+        <div class="section-tag">Hablemos</div>
+        <h2 class="section-title">¿Lista para llevar el bienestar a tu equipo?</h2>
+        <p class="section-sub">Cuéntanos cuál es el reto de tu organización y diseñamos juntos la experiencia que necesitas.</p>
+        <div class="ci-why">
+          <div class="ci-item">
+            <div class="ci-icon">🎯</div>
+            <div><strong>Diagnóstico sin costo</strong><p>La primera conversación es para escucharte. Te ayudamos a identificar qué tipo de experiencia necesita tu organización.</p></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">⚡</div>
+            <div><strong>Respuesta en 24 horas</strong><p>Nuestro equipo te contacta el mismo día o al día hábil siguiente para comenzar a diseñar tu experiencia.</p></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">🌿</div>
+            <div><strong>Experiencias a la medida</strong><p>Cada organización es única. No vendemos paquetes genéricos — diseñamos cada experiencia con intención estratégica.</p></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon">🌐</div>
+            <div><strong>Encuéntranos en</strong><p><a href="https://www.experienciasimone.com.co" target="_blank" style="color:var(--verde);font-weight:600;">www.experienciasimone.com.co</a></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div class="contacto-form">
+          <div id="form-wrapper">
+            <div class="form-title">Cuéntanos tu reto</div>
+            <p class="form-sub">Completa el formulario y te contactamos en 24 horas</p>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+              <div class="form-grid2">
+                <div class="form-group">
+                  <label>Nombre *</label>
+                  <input type="text" name="nombre" placeholder="Tu nombre" required/>
+                </div>
+                <div class="form-group">
+                  <label>Empresa *</label>
+                  <input type="text" name="empresa" placeholder="Tu empresa" required/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Correo electrónico *</label>
+                <input type="email" name="email" placeholder="tu@empresa.com" required/>
+              </div>
+              <div class="form-group">
+                <label>¿Qué área gestionas?</label>
+                <select name="area">
+                  <option value="">Selecciona tu área</option>
+                  <option>Gestión Humana / RRHH</option>
+                  <option>Bienestar Organizacional</option>
+                  <option>Formación y Capacitación</option>
+                  <option>Mercadeo / Comunicaciones</option>
+                  <option>Gerencia / Dirección</option>
+                  <option>Otra</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>¿Cuál es el reto de tu organización?</label>
+                <textarea name="mensaje" placeholder="Cuéntanos qué está pasando en tu equipo... (burnout, desconexión, baja cultura, eventos, formación...)" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn-form">
+                🌿 Enviar y recibir respuesta
+              </button>
+            </form>
+            <div class="form-divider"><span>o escríbenos directamente</span></div>
+            <a href="https://wa.me/573217738039?text=Hola%20Simon%C3%A9%20%F0%9F%91%8B%20Vi%20su%20propuesta%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s.%20%C2%BFPodemos%20hablar%3F" target="_blank" class="btn-wa-full">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp · Respuesta inmediata
+            </a>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="fs-icon">🌿</div>
+            <h3>¡Gracias por escribirnos!</h3>
+            <p>Recibimos tu mensaje. Nuestro equipo te contactará en las próximas 24 horas para diseñar juntos la experiencia que tu organización necesita.</p>
+            <br/>
+            <a href="https://wa.me/573217738039?text=Hola%20Simon%C3%A9%20%F0%9F%91%8B%20Vi%20su%20propuesta%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s.%20%C2%BFPodemos%20hablar%3F" target="_blank" class="btn-wa-full" style="display:flex;">
+              ¿Prefieres hablar ahora? WhatsApp →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer style="background:#1c3a10; padding:56px 0 28px; color:rgba(255,255,255,.75);">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          SIMONÉ
+          <div class="footer-logo-dots"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <p class="footer-tagline">Experiencias que inspiran y perduran</p>
+        <p style="font-size:.8rem; opacity:.55; margin-bottom:16px; line-height:1.6;">Arte · Naturaleza · Transformación<br/>Metodología El Borde Visible™</p>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.facebook.com/experienciasimone" target="_blank" title="Facebook">f</a>
+          <a class="social-btn" href="https://www.instagram.com/experienciasimone" target="_blank" title="Instagram">📷</a>
+          <a class="social-btn" href="https://wa.me/573217738039" target="_blank" title="WhatsApp">💬</a>
+          <a class="social-btn" href="https://www.linkedin.com/company/simone-arte-naturaleza" target="_blank" title="LinkedIn">in</a>
+          <a class="social-btn" href="https://www.experienciasimone.com.co" target="_blank" title="Sitio Web">🌐</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Consultorías Estratégicas</a></li>
+          <li><a href="#servicios">Programas de Formación</a></li>
+          <li><a href="#servicios">Campañas Educativas</a></li>
+          <li><a href="#servicios">Experiencias Focalizadas</a></li>
+          <li><a href="#servicios">Activaciones y Eventos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573217738039" target="_blank">💬 WhatsApp</a></li>
+          <li><a href="https://www.experienciasimone.com.co" target="_blank">🌐 experienciasimone.com.co</a></li>
+          <li><a href="https://www.instagram.com/experienciasimone" target="_blank">📷 @experienciasimone</a></li>
+          <li><a href="#contacto">📝 Formulario de contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Simoné · Arte y Naturaleza. Todos los derechos reservados.</p>
+      <div class="footer-trademark">EL BORDE VISIBLE™ es metodología registrada de Simoné</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WA FLOTANTE ══ -->
+<div class="wa-float">
+  <div class="wa-float-tooltip">¡Hablemos ahora! 👋</div>
+  <a href="https://wa.me/573217738039?text=Hola%20Simon%C3%A9%20%F0%9F%91%8B%20Vi%20su%20propuesta%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s.%20%C2%BFPodemos%20hablar%3F" target="_blank" title="Escríbenos por WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script>
+/* ══ NAV SCROLL ══ */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ══ ANIMATIONS ══ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => observer.observe(el));
+
+/* ══ FORMULARIO ══ */
+function handleSubmit(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const nombre = data.get('nombre');
+  const empresa = data.get('empresa');
+  const email = data.get('email');
+  const area = data.get('area') || 'No especificada';
+  const mensaje = data.get('mensaje') || 'Sin mensaje adicional';
+
+  // Construir mensaje WhatsApp como fallback
+  const waMsg = encodeURIComponent(`Hola Simoné 👋 Me llamo ${nombre} de ${empresa}. Vi su propuesta y quisiera conocer más. Área: ${area}. Reto: ${mensaje}`);
+
+  // Mostrar éxito y redirigir a WA
+  document.getElementById('form-wrapper').style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+
+  // Abrir WhatsApp con los datos
+  setTimeout(() => {
+    window.open(`https://wa.me/573217738039?text=${waMsg}`, '_blank');
+  }, 1200);
+}
+
+/* ══ HAMBURGER ══ */
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '64px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'rgba(28,58,16,.98)';
+    links.style.padding = '20px 24px';
+    links.style.gap = '16px';
+    links.style.backdropFilter = 'blur(12px)';
+  }
+}
+
+/* ══ SMOOTH SCROLL NAV ══ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu
+      const links = document.querySelector('.nav-links');
+      if (window.innerWidth < 700) links.style.display = 'none';
+    }
+  });
+});
+</script>
+</body>
+</html>
